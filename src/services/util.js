@@ -7,6 +7,5 @@ export const formatPrice = (x, currency) => {
   }
 };
 
-export const productsAPI =
-  'https://react-shopping-cart-67954.firebaseio.com/products.json';
+export const productsAPI = 'https://sisfo-24e52.firebaseio.com/products.json';
 // export const productsAPI = "http://localhost:8001/api/products";
