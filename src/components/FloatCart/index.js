@@ -170,7 +170,7 @@ class FloatCart extends Component {
             <div className="sub">SUBTOTAL</div>
             <div className="sub-price">
               <p className="sub-price__val">
-                {`${cartTotal.currencyFormat} ${formatPrice(
+                {`RP ${formatPrice(
                   cartTotal.totalPrice,
                   cartTotal.currencyId
                 )}`}
