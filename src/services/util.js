@@ -1,7 +1,7 @@
 export const formatPrice = (x, currency) => {
   switch (currency) {
-    case 'BRL':
-      return x.toFixed(2).replace('.', ',');
+    case 'IDR':
+      return x.toFixed(0).replace(' ', ',');
     default:
       return x.toFixed(2);
   }

@@ -8,7 +8,7 @@ class CartProduct extends Component {
   static propTypes = {
     product: PropTypes.object.isRequired,
     removeProduct: PropTypes.func.isRequired,
-    changeProductQuantity: PropTypes.func.isRequired,
+    changeProductQuantity: PropTypes.func.isRequired
   };
 
   constructor(props) {
@@ -32,14 +32,14 @@ class CartProduct extends Component {
     const { product } = this.state;
     product.quantity = product.quantity + 1;
     changeProductQuantity(product);
-  }
+  };
 
   handleOnDecrease = () => {
     const { changeProductQuantity } = this.props;
     const { product } = this.state;
     product.quantity = product.quantity - 1;
     changeProductQuantity(product);
-  }
+  };
 
   render() {
     const { removeProduct } = this.props;
@@ -61,7 +61,7 @@ class CartProduct extends Component {
         />
         <Thumb
           classes="shelf-item__thumb"
-          src={require(`../../../static/products/${product.sku}_2.jpg`)}
+          src={require(`../../../static/products/${product.sku}.jpg`)}
           alt={product.title}
         />
         <div className="shelf-item__details">
@@ -74,8 +74,19 @@ class CartProduct extends Component {
         <div className="shelf-item__price">
           <p>{`${product.currencyFormat}  ${formatPrice(product.price)}`}</p>
           <div>
-            <button onClick={this.handleOnDecrease} disabled={product.quantity === 1 ? true : false} className="change-product-button">-</button>
-            <button onClick={this.handleOnIncrease} className="change-product-button">+</button>
+            <button
+              onClick={this.handleOnDecrease}
+              disabled={product.quantity === 1 ? true : false}
+              className="change-product-button"
+            >
+              -
+            </button>
+            <button
+              onClick={this.handleOnIncrease}
+              className="change-product-button"
+            >
+              +
+            </button>
           </div>
         </div>
       </div>

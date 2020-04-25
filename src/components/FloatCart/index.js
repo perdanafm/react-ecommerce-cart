@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { loadCart, removeProduct, changeProductQuantity } from '../../services/cart/actions';
+import {
+  loadCart,
+  removeProduct,
+  changeProductQuantity
+} from '../../services/cart/actions';
 import { updateCart } from '../../services/total/actions';
 import CartProduct from './CartProduct';
 import { formatPrice } from '../../services/util';
@@ -18,7 +22,7 @@ class FloatCart extends Component {
     removeProduct: PropTypes.func,
     productToRemove: PropTypes.object,
     changeProductQuantity: PropTypes.func,
-    productToChange: PropTypes.object,
+    productToChange: PropTypes.object
   };
 
   state = {
@@ -77,22 +81,12 @@ class FloatCart extends Component {
   };
 
   proceedToCheckout = () => {
-    const {
-      totalPrice,
-      productQuantity,
-      currencyFormat,
-      currencyId
-    } = this.props.cartTotal;
+    const { totalPrice, productQuantity } = this.props.cartTotal;
 
     if (!productQuantity) {
       alert('Add some product in the cart!');
     } else {
-      alert(
-        `Checkout - Subtotal: ${currencyFormat} ${formatPrice(
-          totalPrice,
-          currencyId
-        )}`
-      );
+      alert(`Checkout - Subtotal: Rp.  ${totalPrice}`);
     }
   };
 
@@ -105,14 +99,24 @@ class FloatCart extends Component {
       this.removeProduct(product);
     }
     updateCart(cartProducts);
-  }
+  };
 
   render() {
-    const { cartTotal, cartProducts, removeProduct, changeProductQuantity } = this.props;
+    const {
+      cartTotal,
+      cartProducts,
+      removeProduct,
+      changeProductQuantity
+    } = this.props;
 
     const products = cartProducts.map(p => {
       return (
-        <CartProduct product={p} removeProduct={removeProduct} changeProductQuantity={changeProductQuantity} key={p.id} />
+        <CartProduct
+          product={p}
+          removeProduct={removeProduct}
+          changeProductQuantity={changeProductQuantity}
+          key={p.id}
+        />
       );
     });
 
