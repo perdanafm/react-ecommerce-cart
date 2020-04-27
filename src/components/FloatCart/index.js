@@ -9,7 +9,6 @@ import {
 } from '../../services/cart/actions';
 import { updateCart } from '../../services/total/actions';
 import CartProduct from './CartProduct';
-import { formatPrice } from '../../services/util';
 
 import './style.scss';
 
@@ -169,24 +168,7 @@ class FloatCart extends Component {
           <div className="float-cart__footer">
             <div className="sub">SUBTOTAL</div>
             <div className="sub-price">
-              <p className="sub-price__val">
-                {`RP ${formatPrice(
-                  cartTotal.totalPrice,
-                  cartTotal.currencyId
-                )}`}
-              </p>
-              <small className="sub-price__installment">
-                {!!cartTotal.installments && (
-                  <span>
-                    {`OR UP TO ${cartTotal.installments} x ${
-                      cartTotal.currencyFormat
-                    } ${formatPrice(
-                      cartTotal.totalPrice / cartTotal.installments,
-                      cartTotal.currencyId
-                    )}`}
-                  </span>
-                )}
-              </small>
+              <p className="sub-price__val">{`RP ${cartTotal.totalPrice}`}</p>
             </div>
             <div onClick={() => this.proceedToCheckout()} className="buy-btn">
               Checkout

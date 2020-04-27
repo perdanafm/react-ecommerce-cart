@@ -7,12 +7,7 @@ import Checkbox from '../../Checkbox';
 
 import './style.scss';
 
-const availableSizes = [
-  'Baru Minggu Ini',
-  'Menu Sehat',
-  'Promosi',
-  'Tervaforit'
-];
+const category = ['Baru Minggu Ini', 'Menu Sehat', 'Promosi', 'Tervaforit'];
 
 class Filter extends Component {
   static propTypes = {
@@ -43,7 +38,7 @@ class Filter extends Component {
     />
   );
 
-  createCheckboxes = () => availableSizes.map(this.createCheckbox);
+  createCheckboxes = () => category.map(this.createCheckbox);
 
   render() {
     return (

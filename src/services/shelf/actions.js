@@ -24,7 +24,7 @@ export const fetchProducts = (filters, sortBy, callback) => dispatch => {
       console.log(products);
       if (!!filters && filters.length > 0) {
         products = products.filter(p =>
-          filters.find(f => p.availableSizes.find(size => size === f))
+          filters.find(f => p.category.find(size => size === f))
         );
       }
 

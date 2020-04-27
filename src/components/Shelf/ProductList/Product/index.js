@@ -17,7 +17,7 @@ const Product = ({ product, addProduct }) => {
       {/*TODO: change url image to firebase hit */}
       <Thumb
         classes="shelf-item__thumb"
-        src={require(`../../../../static/products/${product.sku}.jpg`)}
+        src={product.url}
         alt={product.title}
       />
       <p className="shelf-item__title">{product.title}</p>

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Thumb from './../../Thumb';
-import { formatPrice } from '../../../services/util';
 
 class CartProduct extends Component {
   static propTypes = {
@@ -61,18 +60,18 @@ class CartProduct extends Component {
         />
         <Thumb
           classes="shelf-item__thumb"
-          src={require(`../../../static/products/${product.sku}.jpg`)}
+          src={product.url}
           alt={product.title}
         />
         <div className="shelf-item__details">
           <p className="title">{product.title}</p>
           <p className="desc">
-            {`${product.availableSizes[0]} | ${product.style}`} <br />
+            {`${product.category} | ${product.desc}`} <br />
             Quantity: {product.quantity}
           </p>
         </div>
         <div className="shelf-item__price">
-          <p>{`${product.currencyFormat}  ${formatPrice(product.price)}`}</p>
+          <p>{`RP  ${product.price}`}</p>
           <div>
             <button
               onClick={this.handleOnDecrease}
